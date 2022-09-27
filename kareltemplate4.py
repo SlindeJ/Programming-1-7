@@ -76,41 +76,31 @@ class ktools:
                 if self.ric():
                     self.tr()
                     self.m()
+
+    def mm(self, num):
+        """Move Multiple"""
+        for number in range(0, num):
+            self.m()
+
+    def putm(self, num):
+        """Put Multiple"""
+        for i in range(num - 1):
+            self.put()
+            self.m()
+        self.put()
+
+    def pickm(self, num):
+        """Pick Multiple"""
+        for _ in range(num - 1):
+            self.pick()
+            self.m()
+        self.pick()
         pass
 
 
 def main():
     """ Karel code goes here! """
     kt = ktools()
-    """I just have to spam mazemove"""
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
     pass
 
 

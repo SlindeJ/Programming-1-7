@@ -76,41 +76,77 @@ class ktools:
                 if self.ric():
                     self.tr()
                     self.m()
-        pass
+
+    def mm(self, num):
+        """Move Multiple"""
+        for number in range(0, num):
+            self.m()
+
+    def putm(self, num):
+        """Put Multiple"""
+        for i in range(num - 1):
+            self.put()
+            self.m()
+        self.put()
+
+    def pickm(self, num):
+        """Pick Multiple"""
+        for _ in range(num - 1):
+            self.pick()
+            self.m()
+        self.pick()
+
+    def sob(self) -> bool:
+      """Standing on beeper"""
+      return beepers_present()
+
+    def jump(self):
+      """Jump for karel 510"""
+      while self.fic():
+        self.m()
+      self.tl()
+      while self.rib():
+        self.m()
+      self.tr()
+      self.m()
+      self.tr()
+      while self.fic():
+        self.m()
+      self.tl()
+      
+    def find(self):
+      """Find for 515"""
+      while not facing_north():
+        self.tl()
+      self.m()
+      if not self.sob():
+        self.tl()
+        self.m()
+        self.tl()
+        self.m()
+      for _ in range(2):
+        if not self.sob():
+          self.m()
+          self.tl()
+          self.m()
+      pass
+      
+      
+      pass
 
 
 def main():
     """ Karel code goes here! """
     kt = ktools()
-    """I just have to spam mazemove"""
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
+    kt.m()
+    kt.tl()
+    kt.m()
+    kt.tr()
+    kt.m()
+
+    while kt.sob():
+      kt.pick()
+      kt.find()
     pass
 
 
