@@ -95,22 +95,55 @@ class ktools:
             self.pick()
             self.m()
         self.pick()
-    
+
     def one(self):
-      """Simple 1"""
-      kt.tl()
-      kt.mm(5)
-      kt.ta()
-      kt.putm(5)
-      kt.tl()
-      kt.mm(2)
-        pass
+        """Simple 1"""
+        self.tl()
+        self.mm(5)
+        self.ta()
+        self.putm(5)
+        self.tl()
+        self.mm(2)
+
+    def zero(self, num):
+        """Make a number of 0's"""
+        for _ in range(0, num):
+            self.tl()
+            self.put5()
+            self.ta()
+            self.m()
+            self.m()
+            self.m()
+            self.m()
+            self.tl()
+            self.m()
+            self.put2()
+            self.m()
+            self.tl()
+            self.put5()
+            self.tl()
+            self.m()
+            self.put2()
+            self.tl()
+            self.m()
+            self.m()
+            self.m()
+            self.m()
+            self.tl()
+            self.m()
+            self.m()
+            self.m()
+            self.m()
+
+    pass
 
 
 def main():
     """ Karel code goes here! """
     kt = ktools()
+    kt.m()
     kt.one()
+    kt.zero(9)
     pass
 
 
