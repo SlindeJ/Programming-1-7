@@ -96,38 +96,48 @@ class ktools:
             self.m()
         self.pick()
 
-        pass
+    def sob(self) -> bool:
+      """Standing on beeper"""
+      return beepers_present()
 
-    def carpet(self):
-        """Move karel to carpet a room"""
+    def jump(self):
+      """Jump for karel 510"""
+      while self.fic():
+        self.m()
+      self.tl()
+      while self.rib():
+        self.m()
+      self.tr()
+      self.m()
+      self.tr()
+      while self.fic():
+        self.m()
+      self.tl()
+      
+    def find(self):
+      """Find for 515"""
+      while not facing_north():
+        self.tl()
+      self.m()
+      if not self.sob():
+        self.tl()
         self.m()
         self.tl()
         self.m()
-        if left_is_blocked() and front_is_blocked() and right_is_blocked():
-            self.put()
-            self.ta()
-            self.m()
-            self.tl()
-        else:  # I know I don't need the else but it works so I don't need to touch it.
-            self.ta()
-            self.m()
-            self.tl()
-
-        pass
+      for _ in range(2):
+        if not self.sob():
+          self.m()
+          self.tl()
+          self.m()
+      pass
+      
+      
+      pass
 
 
 def main():
     """ Karel code goes here! """
     kt = ktools()
-    kt.carpet()
-    kt.carpet()
-    kt.carpet()
-    kt.carpet()
-    kt.carpet()
-    kt.carpet()
-    kt.carpet()
-    kt.carpet()
-    kt.carpet()
     pass
 
 
