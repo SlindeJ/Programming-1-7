@@ -97,62 +97,74 @@ class ktools:
         self.pick()
 
     def sob(self) -> bool:
-      """Standing on beeper"""
-      return beepers_present()
+        """Standing on beeper"""
+        return beepers_present()
 
     def jump(self):
-      """Jump for karel 510"""
-      while self.fic():
+        """Jump for karel 510"""
+        while self.fic():
+            self.m()
+        self.tl()
+        while self.rib():
+            self.m()
+        self.tr()
         self.m()
-      self.tl()
-      while self.rib():
-        self.m()
-      self.tr()
-      self.m()
-      self.tr()
-      while self.fic():
-        self.m()
-      self.tl()
-      
+        self.tr()
+        while self.fic():
+            self.m()
+        self.tl()
+
     def find(self):
-      """Find for 515"""
-      while not facing_north():
-        self.tl()
-      self.m()
-      if not self.sob():
-        self.tl()
+        """Find for 515"""
+        while not facing_north():
+            self.tl()
         self.m()
-        self.tl()
-        self.m()
-      for _ in range(2):
         if not self.sob():
-          self.m()
-          self.tl()
-          self.m()
-      pass
-      
-    def carpetcheck(self):
-      """Karel will carpet a room after checking it for holes"""
-      self.m() 
-      self.tl()
-      self.m()
-      while left_is_blocked() and right_is_blocked() and front_is_clear():    #find a way to loop and count the loops the put in a putm() function
-        self.m()
-      if left_is_blocked() and right_is_blocked() and front_is_blocked(): 
-        self.ta()
-        self.putm(#of loops)
-      else:
-        self.ta()
-        self.mm(#of loops)
-      self.m()
-      self.tl()
-      
-      pass
+            self.tl()
+            self.m()
+            self.tl()
+            self.m()
+        for _ in range(2):
+            if not self.sob():
+                self.m()
+                self.tl()
+                self.m()
+        pass
+
+    def followbpr(self):
+        while beepers_present():
+            self.pick()
+        if not beepers_present():
+            self.m()
+        pass
+
+        pass
 
 
 def main():
     """ Karel code goes here! """
     kt = ktools()
+    kt.m()
+    kt.m()
+    kt.tl()
+    kt.m()
+    kt.followbpr()
+    kt.followbpr()
+    kt.followbpr()
+    kt.tr()
+    kt.followbpr()
+    kt.followbpr()
+    kt.followbpr()
+    kt.tr()
+    kt.followbpr()
+    kt.followbpr()
+    kt.followbpr()
+    kt.tr()
+    kt.followbpr()
+    kt.followbpr()
+    kt.followbpr()
+    kt.ta()
+
     pass
 
 
