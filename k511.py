@@ -131,21 +131,22 @@ class ktools:
                 self.m()
         pass
 
-    def jumpall(self):
+    def jumpall(self, num):
         """Karel will jump hurdels of any size and shape"""
-        counter = 0
-        while counter == 0 and right_is_blocked() and front_is_clear():
-            self.m()
-        while counter == 0 and front_is_blocked() and right_is_blocked(
-        ) and left_is_clear():
-            self.tl()
-        while counter == 0 and right_is_clear():
-            self.tr()
-            self.m()
-        if beepers_present():
-            self.pick()
-            self.tl()
-            counter = counter + 1
+        for _ in range(0, num):
+            counter = 0
+            while counter == 0 and right_is_blocked() and front_is_clear():
+                self.m()
+            while counter == 0 and front_is_blocked() and right_is_blocked(
+            ) and left_is_clear():
+                self.tl()
+            while counter == 0 and right_is_clear():
+                self.tr()
+                self.m()
+            if beepers_present():
+                self.pick()
+                self.tl()
+                counter = counter + 1
 
         pass
 
@@ -153,7 +154,7 @@ class ktools:
 def main():
     """ Karel code goes here! """
     kt = ktools()
-    kt.jumpall()
+    kt.jumpall(21)
     pass
 
 
