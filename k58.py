@@ -138,13 +138,12 @@ class ktools:
                 self.put()  #karel follows the left wall
                 self.m()
             while left_is_clear():
-                self.tl()    #was an if
+                self.tl()  #was an if
                 self.put()
                 self.m()
-            while left_is_blocked() and front_is_blocked() and right_is_clear():
-                self.tr()    #  was an if
-            while not beepers_present():
-                self.put()
+            while left_is_blocked() and front_is_blocked() and right_is_clear(
+            ):
+                self.tr()  #  was an if
         pass
 
 
@@ -155,7 +154,7 @@ def main():
     kt.tl()
     kt.mm(4)
     kt.tr()
-    kt.garden(9)
+    kt.garden(7)
     pass
 
 
