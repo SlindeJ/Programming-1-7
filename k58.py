@@ -131,17 +131,18 @@ class ktools:
                 self.m()
         pass
 
-    def garden(self):
+    def garden(self, num):
         """Karel will plant beepers until all sides have beepers"""
         for _ in range(0, num):
             while front_is_clear() and right_is_clear() and left_is_blocked():
-                self.m()  #karel follows the left wall
-                self.put()
-            if left_is_clear():
-                self.tl()
+                self.put()  #karel follows the left wall
                 self.m()
-            if left_is_blocked() and front_is_blocked() and right_is_clear():
-                self.tr()
+            while left_is_clear():
+                self.tl()    #was an if
+                self.put()
+                self.m()
+            while left_is_blocked() and front_is_blocked() and right_is_clear():
+                self.tr()    #  was an if
             while not beepers_present():
                 self.put()
         pass

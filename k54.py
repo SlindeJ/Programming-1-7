@@ -22,6 +22,12 @@ class ktools:
         self.tl()
         self.tl()
 
+    def tam(self, num):
+        """Turn Around"""
+        for _ in range(0, num):
+            self.tl()
+            self.tl()
+
     def pick(self):
         """Pick Beeper"""
         pick_beeper()
@@ -139,7 +145,9 @@ class ktools:
             counter = counter + 1
         if not self.sob():
             self.tl()
-            self.ta(counter + 1)    # make a turn around function that works multiple times. 
+            self.tam(
+                counter +
+                1)  # make a turn around function that works multiple times.
 
     def pickall(self):
         """pick all beepers up"""

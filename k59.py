@@ -133,11 +133,13 @@ class ktools:
     def carpet59(self):
         """Karel will plant beepers until all sides have beepers"""
         while front_is_clear() and right_is_clear() and left_is_blocked():
+            self.put()
             self.m()  #karel follows the left wall
-        if left_is_clear():
+        while left_is_clear():
             self.tl()
+            self.put()
             self.m()
-        if left_is_blocked() and front_is_blocked() and right_is_clear():
+        while left_is_blocked() and front_is_blocked() and right_is_clear():
             self.tr()
         while not beepers_present():
             self.put()
