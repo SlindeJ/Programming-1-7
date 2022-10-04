@@ -97,61 +97,65 @@ class ktools:
         self.pick()
 
     def sob(self) -> bool:
-      """Standing on beeper"""
-      return beepers_present()
+        """Standing on beeper"""
+        return beepers_present()
 
     def jump(self):
-      """Jump for karel 510"""
-      while self.fic():
+        """Jump for karel 510"""
+        while self.fic():
+            self.m()
+        self.tl()
+        while self.rib():
+            self.m()
+        self.tr()
         self.m()
-      self.tl()
-      while self.rib():
-        self.m()
-      self.tr()
-      self.m()
-      self.tr()
-      while self.fic():
-        self.m()
-      self.tl()
-      
+        self.tr()
+        while self.fic():
+            self.m()
+        self.tl()
+
     def find(self):
-      """Find for 515"""
-      while not facing_north():
-        self.tl()
-      self.m()
-      if not self.sob():
-        self.tl()
-        self.m()
-        self.tl()
-        self.m()
-      for _ in range(2):
-        if not self.sob():
-          self.m()
-          self.tl()
-          self.m()
-      pass
-      
-    def followbpr(self):
-      """Karel will turn a direction after picking up a number of beepers"""
-      bprcnt = 0
-      while sob():
-        self.pick()
-        bprcnt = bprcnt + 1
-      if bprcnt == 1:
+        """Find for 515"""
         while not facing_north():
-          self.tl()
-      elif bprcnt == 2:
-        while not facing_west():
-          self.tl()
-      elif bprcnt == 3:
-        while not facing_south():
-          self.tl()
-      elif bprcnt == 4:
-        while not facing_east():
-          self.tl()
-      bprcnt = 0
-      
-      pass
+            self.tl()
+        self.m()
+        if not self.sob():
+            self.tl()
+            self.m()
+            self.tl()
+            self.m()
+        for _ in range(2):
+            if not self.sob():
+                self.m()
+                self.tl()
+                self.m()
+        pass
+
+    def followbpr(self, num):
+        """Karel will turn a direction after picking up a number of beepers"""
+        for _ in range(0, num):
+            bprcnt = 0
+            while beepers_present():
+                self.pick()
+                bprcnt = bprcnt + 1
+            if bprcnt == 1:
+                while not facing_north():
+                    self.tl()
+            elif bprcnt == 2:
+                while not facing_west():
+                    self.tl()
+            elif bprcnt == 3:
+                while not facing_south():
+                    self.tl()
+            elif bprcnt == 4:
+                while not facing_east():
+                    self.tl()
+            elif bprcnt == 5:
+                break
+            while not beepers_present():
+                self.m()
+            bprcnt = 0
+        pass
 
 
 def main():
@@ -160,8 +164,7 @@ def main():
     kt.m()
     kt.tl()
     kt.m()
-    kt.followbpr()
-    kt.followbpr()
+    kt.followbpr(16)
     pass
 
 
