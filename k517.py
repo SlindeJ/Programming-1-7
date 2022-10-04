@@ -97,66 +97,66 @@ class ktools:
         self.pick()
 
     def sob(self) -> bool:
-      """Standing on beeper"""
-      return beepers_present()
+        """Standing on beeper"""
+        return beepers_present()
 
     def jump(self):
-      """Jump for karel 510"""
-      while self.fic():
+        """Jump for karel 510"""
+        while self.fic():
+            self.m()
+        self.tl()
+        while self.rib():
+            self.m()
+        self.tr()
         self.m()
-      self.tl()
-      while self.rib():
-        self.m()
-      self.tr()
-      self.m()
-      self.tr()
-      while self.fic():
-        self.m()
-      self.tl()
-      
+        self.tr()
+        while self.fic():
+            self.m()
+        self.tl()
+
     def find(self):
-      """Find for 515"""
-      while not facing_north():
-        self.tl()
-      self.m()
-      if not self.sob():
-        self.tl()
+        """Find for 515"""
+        while not facing_north():
+            self.tl()
         self.m()
-        self.tl()
-        self.m()
-      for _ in range(2):
         if not self.sob():
-          self.m()
-          self.tl()
-          self.m()
-      pass
+            self.tl()
+            self.m()
+            self.tl()
+            self.m()
+        for _ in range(2):
+            if not self.sob():
+                self.m()
+                self.tl()
+                self.m()
+        pass
 
-    def Mazeall(self):
+    def mazeall(self, num):
         """Karel will follow the right until it picks up a beeper"""
-        counter = 0
-        while counter == 0 and right_is_blocked() and front_is_clear():
-            self.m()
-        while counter == 0 and front_is_blocked() and right_is_blocked(
-        ):
-            self.tl()
-        while left_is_blocked() and right_is_blocked() and front_is_blocked():
-          self.ta()
-        while counter == 0 and right_is_clear():
-            self.tr()
-            self.m()
-        if beepers_present():
-            self.pick()
-            self.tl()
-            counter = counter + 1
+        for _ in range(0, num):
+            counter = 0
+            while counter == 0 and right_is_blocked() and front_is_clear():
+                self.m()
+            while counter == 0 and front_is_blocked() and right_is_blocked():
+                self.tl()
+            while left_is_blocked() and right_is_blocked(
+            ) and front_is_blocked():
+                self.ta()
+            while counter == 0 and right_is_clear():
+                self.tr()
+                self.m()
+            if beepers_present():
+                self.pick()
+                self.tl()
+                counter = counter + 1
 
-      
-      pass
+    pass
 
 
 def main():
     """ Karel code goes here! """
     kt = ktools()
-    kt.mazeall()
+    kt.mazeall(67)
     pass
 
 
