@@ -97,54 +97,55 @@ class ktools:
         self.pick()
 
     def sob(self) -> bool:
-      """Standing on beeper"""
-      return beepers_present()
+        """Standing on beeper"""
+        return beepers_present()
 
     def jump(self):
-      """Jump for karel 510"""
-      while self.fic():
-        self.m()
-      self.tl()
-      while self.rib():
-        self.m()
-      self.tr()
-      self.m()
-      self.tr()
-      while self.fic():
-        self.m()
-      self.tl()
-      
-    def find(self):
-      """Find for 515"""
-      while not facing_north():
-        self.tl()
-      self.m()
-      if not self.sob():
-        self.tl()
-        self.m()
-        self.tl()
-        self.m()
-      for _ in range(2):
-        if not self.sob():
-          self.m()
-          self.tl()
-          self.m()
-      pass
-    def carpet59(self):
-        """Karel will plant beepers until all sides have beepers"""
-        while front_is_clear() and right_is_clear() and left_is_blocked():
-            self.put()
-            self.m()  #karel follows the left wall
-        while left_is_clear():
-            self.tl()
-            self.put()
+        """Jump for karel 510"""
+        while self.fic():
             self.m()
-        while left_is_blocked() and front_is_blocked() and right_is_clear():
-            self.tr()
-        while not beepers_present():
-            self.put()
-      
-      pass
+        self.tl()
+        while self.rib():
+            self.m()
+        self.tr()
+        self.m()
+        self.tr()
+        while self.fic():
+            self.m()
+        self.tl()
+
+    def find(self):
+        """Find for 515"""
+        while not facing_north():
+            self.tl()
+        self.m()
+        if not self.sob():
+            self.tl()
+            self.m()
+            self.tl()
+            self.m()
+        for _ in range(2):
+            if not self.sob():
+                self.m()
+                self.tl()
+                self.m()
+        pass
+
+    def carpet59(self, num):
+        """Karel will plant beepers until all sides have beepers"""
+        for _ in range(0, num):
+            while front_is_clear() and left_is_blocked():
+                self.put()
+                self.m()  #karel follows the left wall
+            while left_is_clear():
+                self.tl()
+                self.put()
+                self.m()
+            while left_is_blocked() and front_is_blocked() and right_is_clear(
+            ):
+                self.tr()
+
+    pass
 
 
 def main():
@@ -154,9 +155,10 @@ def main():
     kt.mm(5)
     kt.tr()
     kt.m()
+    """Real code starts"""
     kt.tr()
-    kt.carpet59()    #add carpet59 as needed, it's garden from 58
-
+    kt.m()
+    kt.carpet59(4)
     pass
 
 
