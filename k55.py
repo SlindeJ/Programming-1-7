@@ -137,7 +137,12 @@ class ktools:
         if not beepers_present():
             self.m()
         pass
-
+    def followbprB(self, num):
+        for _ in range(0, num):
+          self.followbpr()
+          self.followbpr()
+          self.followbpr()
+          self.tr()
         pass
 
 
@@ -148,22 +153,7 @@ def main():
     kt.m()
     kt.tl()
     kt.m()
-    kt.followbpr()
-    kt.followbpr()
-    kt.followbpr()
-    kt.tr()
-    kt.followbpr()
-    kt.followbpr()
-    kt.followbpr()
-    kt.tr()
-    kt.followbpr()
-    kt.followbpr()
-    kt.followbpr()
-    kt.tr()
-    kt.followbpr()
-    kt.followbpr()
-    kt.followbpr()
-    kt.ta()
+    kt.followbprB(4)
 
     pass
 

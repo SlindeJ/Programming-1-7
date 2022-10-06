@@ -98,20 +98,21 @@ class ktools:
 
         pass
 
-    def carpet(self):
+    def carpet(self, num):
         """Move karel to carpet a room"""
-        self.m()
-        self.tl()
-        self.m()
-        if left_is_blocked() and front_is_blocked() and right_is_blocked():
-            self.put()
-            self.ta()
-            self.m()
-            self.tl()
-        else:  # I know I don't need the else but it works so I don't need to touch it.
-            self.ta()
-            self.m()
-            self.tl()
+        for _ in range(0, num):
+          self.m()
+          self.tl()
+          self.m()
+          if left_is_blocked() and front_is_blocked() and right_is_blocked():
+              self.put()
+              self.ta()
+              self.m()
+              self.tl()
+          else:  # I know I don't need the else but it works so I don't need to touch it.
+              self.ta()
+              self.m()
+              self.tl()
 
         pass
 
@@ -119,15 +120,7 @@ class ktools:
 def main():
     """ Karel code goes here! """
     kt = ktools()
-    kt.carpet()
-    kt.carpet()
-    kt.carpet()
-    kt.carpet()
-    kt.carpet()
-    kt.carpet()
-    kt.carpet()
-    kt.carpet()
-    kt.carpet()
+    kt.carpet(9)
     pass
 
 

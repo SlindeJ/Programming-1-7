@@ -64,18 +64,19 @@ class ktools:
         """Right is blocked"""
         return not self.ric()
 
-    def mazemove(self):
+    def mazemove(self, num):
         """Maze Move"""
-        if self.fib():
-            self.tl()
-        else:  #    otherwise...
-            self.m()
-            if self.ric():
-                self.tr()
-                self.m()
-                if self.ric():
-                    self.tr()
-                    self.m()
+        for _ in range(0, num):  
+          if self.fib():
+              self.tl()
+          else:  #    otherwise...
+              self.m()
+              if self.ric():
+                  self.tr()
+                  self.m()
+                  if self.ric():
+                      self.tr()
+                      self.m()
         pass
 
 
@@ -83,34 +84,7 @@ def main():
     """ Karel code goes here! """
     kt = ktools()
     """I just have to spam mazemove"""
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
-    kt.mazemove()
+    kt.mazemove(27)
     pass
 
 
